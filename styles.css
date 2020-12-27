@@ -1,3 +1,36 @@
+/*  
+    Grayish purple: #8486a9
+    Pink: #fb6087
+    dark purple: #343650
+    very dark purple: #1e1f29
+    almost black purple: #191a24
+2F2439
+*/
+
+html {
+    height: 100%;
+}
+
 body {
+    min-height: 100%;
     font-family: 'Red Hat Text', sans-serif;
+    background: rgb(30, 31, 41);
+    background: linear-gradient(180deg, rgba(30, 31, 41, 1) 0%, rgba(47, 36, 57, 1) 100%);
+    color: #ffffff;
+    position: relative;
+}
+
+.hills {
+    position: absolute;
+    bottom: 0;
+}
+
+/* Main Countdown Section */
+
+.countdown__digit {
+    color: #fb6087;
+}
+
+.countdown__title {
+    color: #8486a9;
 }
