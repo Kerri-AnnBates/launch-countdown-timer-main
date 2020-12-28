@@ -25,6 +25,12 @@ body {
     position: relative;
 }
 
+.stars {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
 .page-body {
     display: flex;
     flex-direction: column;
