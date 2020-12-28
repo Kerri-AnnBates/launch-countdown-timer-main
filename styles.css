@@ -7,12 +7,17 @@
 2F2439
 */
 
-html {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
     height: 100%;
 }
 
 body {
-    min-height: 100%;
     font-family: 'Red Hat Text', sans-serif;
     background: rgb(30, 31, 41);
     background: linear-gradient(180deg, rgba(30, 31, 41, 1) 0%, rgba(47, 36, 57, 1) 100%);
@@ -20,9 +25,23 @@ body {
     position: relative;
 }
 
+.page-body {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 100%;
+}
+
+main {
+    flex-grow: 1;
+}
+
 .hills {
     position: absolute;
     bottom: 0;
+    z-index: -1;
 }
 
 /* Main Countdown Section */
@@ -33,4 +52,10 @@ body {
 
 .countdown__title {
     color: #8486a9;
+}
+
+/* Footer */
+
+footer {
+    padding: 20px 0;
 }
