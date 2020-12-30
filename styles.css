@@ -46,12 +46,22 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
 .hills {
     position: absolute;
     bottom: 0;
     z-index: -1;
+}
+
+.main-title {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    font-size: 12px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
 }
 
 /* Main Countdown Section */
