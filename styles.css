@@ -61,19 +61,89 @@ main {
     justify-content: center;
 }
 
-.countdown__block {
-    /* padding: 20px; */
-}
-
 .countdown__digit {
     color: #fb6087;
     font-weight: 700;
     font-size: 64px;
-    padding: 20px;
+    padding: 10px;
+    position: relative;
 }
 
+/* Digit Card */
+
+.card {
+    position: absolute;
+    height: 50%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.card::after {
+    background: #25222F;
+    /* background: rebeccapurple; */
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 6px;
+}
+
+.card::before {
+    background: #25222F;
+    /* background: rebeccapurple; */
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 6px;
+}
+
+.top {
+    top: 0;
+    background-color: #212035;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.top::after, .bottom::after {
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.top::before, .bottom::before {
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+}
+
+.top::after {
+    bottom: -6px;
+    left: 0;
+}
+
+.top::before {
+    bottom: -6px;
+    right: 0;
+}
+
+.bottom {
+    bottom: 0;
+    background-color: #27273E;
+    border-radius: 0 0 5px 5px;
+}
+
+.bottom::after {
+    top: -6px;
+    left: 0;
+}
+
+.bottom::before {
+    top: -6px;
+    right: 0;
+}
+
+/* End Digit Card */
+
 .countdown__title {
-    color: #8486a9;
     margin-top: 20px;
     text-transform: uppercase;
     font-weight: 700;
@@ -84,5 +154,15 @@ main {
 /* Footer */
 
 footer {
-    padding: 40px 0;
+    padding: 50px 0;
+}
+
+.social a {
+    color: #8486a9;
+    margin-right: 30px;
+    font-size: 30px;
+}
+
+.social a:hover {
+    color: #fb6087;
 }
