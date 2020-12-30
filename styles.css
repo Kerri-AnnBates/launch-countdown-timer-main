@@ -59,7 +59,7 @@ main {
     position: absolute;
     top: 25%;
     width: 100%;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 10px;
     text-transform: uppercase;
 }
@@ -74,7 +74,7 @@ main {
 .countdown__digit {
     color: #fb6087;
     font-weight: 700;
-    font-size: 64px;
+    font-size: 75px;
     padding: 10px;
     position: relative;
 }
