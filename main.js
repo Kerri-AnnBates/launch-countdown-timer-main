@@ -11,6 +11,8 @@ let minutes;
 let hours;
 let day;
 
+// Bug with minutes display when hour starts at 1 hour.
+
 setInterval(() => {
     hours = parseInt(timer / (60 * 60), 10);
     minutes = (minutes > 60) ? parseInt(timer / 60, 10) : parseInt((timer / 60) - 60, 10);
@@ -18,6 +20,11 @@ setInterval(() => {
 
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
+    hours = hours < 10 ? "0" + hours : hours;
+
+    if (minutes == 60) {
+        minutes = "00";
+    }
 
     console.log(`${hours}:${minutes}:${seconds}`);
     timer--;
