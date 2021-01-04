@@ -4,32 +4,28 @@ const minuteElement = document.querySelector("#minute");
 const secondElement = document.querySelector("#second");
 
 
-let startDay = 14 * 24 * 60 * 60;
-let timer = 60 * 60 * 2;  // 2 hours
-let seconds;
-let minutes;
-let hours;
-let day;
+let currentDate = new Date();
+currentDate.setDate(currentDate.getDate() + 1);
 
-// Bug with minutes display when hour starts at 1 hour.
+console.log(Date.now());
+console.log(Date.parse(currentDate));
 
-setInterval(() => {
-    hours = parseInt(timer / (60 * 60), 10);
-    minutes = (minutes > 60) ? parseInt(timer / 60, 10) : parseInt((timer / 60) - 60, 10);
-    seconds = parseInt(timer % 60, 10);
+let difference = Date.parse(currentDate) - Date.now();
+let sec = Math.floor(difference / 1000) % 60;
+let min = Math.floor(difference / 1000 / 60);
+let hour = Math.floor(difference / 1000 / (60 * 60));
+let day = Math.floor(difference / 1000 / (60 * 60 * 24));
 
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    hours = hours < 10 ? "0" + hours : hours;
+console.log("Seconds:", sec);
+console.log("Minutes:", min);
+console.log("Hour:", hour);
+console.log("Day:", day);
 
-    if (minutes == 60) {
-        minutes = "00";
-    }
+// Get endTime -> 14 days
+// Get value for current time (seconds, minute, hour, day)
+// Get the difference of current time from endTime
+// Do this every second until timer is at zero 
 
-    console.log(`${hours}:${minutes}:${seconds}`);
-    timer--;
+const timer = (duration) => {
 
-    // if (--timer < 0) {
-    //     timer = duration;
-    // }
-}, 1000);
+}
