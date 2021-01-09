@@ -25,6 +25,11 @@ body {
     position: relative;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .stars {
     position: absolute;
     top: 0;
