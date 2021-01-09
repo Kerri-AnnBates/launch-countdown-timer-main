@@ -3,27 +3,36 @@ const hourElement = document.querySelector("#hour");
 const minuteElement = document.querySelector("#minute");
 const secondElement = document.querySelector("#second");
 
-
 let currentDate = new Date();
-currentDate.setDate(currentDate.getDate() + 1);
+currentDate.setDate(currentDate.getDate() + 1); // 1 day
+// currentDate.setDate(currentDate.getDate() + 14); // 14 day
 
-console.log(Date.now());
-console.log(Date.parse(currentDate));
+let diff = Date.parse(currentDate) - Date.now();
+let sec, min, hour, day;
 
-let difference = Date.parse(currentDate) - Date.now();
-let sec = Math.floor(difference / 1000) % 60;
-let min = Math.floor(difference / 1000 / 60);
-let hour = Math.floor(difference / 1000 / (60 * 60));
-let day = Math.floor(difference / 1000 / (60 * 60 * 24));
+console.log(diff);
 
-console.log("Seconds:", sec);
-console.log("Minutes:", min);
-console.log("Hour:", hour);
-console.log("Day:", day);
+sec = Math.floor(diff / 1000) % 60;
+min = Math.floor(diff / 1000 / 60) % 60;
+hour = Math.floor(diff / 1000 / (60 * 60)) % 24;
+day = Math.floor(diff / 1000 / (60 * 60 * 24));
+
+console.log(`Starting at day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
+
+setInterval(() => {
+    diff -= 1000;
+    sec = Math.floor(diff / 1000) % 60;
+    min = Math.floor(diff / 1000 / 60) % 60;
+    hour = Math.floor(diff / 1000 / (60 * 60));
+    day = Math.floor(diff / 1000 / (60 * 60 * 24));
+
+    console.log(`day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
+
+}, 1000);
 
 // Get endTime -> 14 days
 // Get value for current time (seconds, minute, hour, day)
-// Get the difference of current time from endTime
+// Get the diff of current time from endTime
 // Do this every second until timer is at zero 
 
 const timer = (duration) => {
