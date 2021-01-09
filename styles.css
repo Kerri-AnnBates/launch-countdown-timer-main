@@ -62,7 +62,6 @@ main {
     /* position: absolute;
     bottom: 0;
     z-index: -1; */
-    /* background: url("./images/pattern-hills.svg") no-repeat; */
     /* height: 500px; */
 }
 
@@ -103,6 +102,9 @@ main {
 
 footer {
     padding: 50px 0;
+    background: url("./images/pattern-hills.svg") no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .social a {
