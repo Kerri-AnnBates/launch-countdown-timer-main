@@ -28,6 +28,11 @@ setInterval(() => {
 
     console.log(`day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
 
+    dayElement.textContent = day < 10 ? `0${day}` : day;
+    hourElement.textContent = hour < 10 ? `0${hour}` : hour;
+    minuteElement.textContent = min < 10 ? `0${min}` : min;
+    secondElement.textContent = sec < 10 ? `0${sec}` : sec;
+
 }, 1000);
 
 // Get endTime -> 14 days
