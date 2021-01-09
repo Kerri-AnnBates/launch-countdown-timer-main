@@ -4,8 +4,8 @@ const minuteElement = document.querySelector("#minute");
 const secondElement = document.querySelector("#second");
 
 let currentDate = new Date();
-currentDate.setDate(currentDate.getDate() + 1); // 1 day
-// currentDate.setDate(currentDate.getDate() + 14); // 14 day
+// currentDate.setDate(currentDate.getDate() + 1); // 1 day
+currentDate.setDate(currentDate.getDate() + 14); // 14 day
 
 let diff = Date.parse(currentDate) - Date.now();
 let sec, min, hour, day;
@@ -23,7 +23,7 @@ setInterval(() => {
     diff -= 1000;
     sec = Math.floor(diff / 1000) % 60;
     min = Math.floor(diff / 1000 / 60) % 60;
-    hour = Math.floor(diff / 1000 / (60 * 60));
+    hour = Math.floor(diff / 1000 / (60 * 60)) % 24;
     day = Math.floor(diff / 1000 / (60 * 60 * 24));
 
     console.log(`day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
