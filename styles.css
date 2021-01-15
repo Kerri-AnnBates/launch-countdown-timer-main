@@ -86,17 +86,21 @@ main {
     color: #fb6087;
     font-weight: 700;
     font-size: 75px;
-    padding: 10px;
     position: relative;
 }
 
 .countdown__title {
-    margin-top: 20px;
+    margin-top: 15px;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 3px;
     color: #8486a9;
+}
+
+.countdown__block {
+    max-width: 120px;
+    width: 100%;
 }
 
 /* Footer */
