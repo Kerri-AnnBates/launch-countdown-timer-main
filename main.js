@@ -4,38 +4,51 @@ const minuteElement = document.querySelector("#minute");
 const secondElement = document.querySelector("#second");
 
 let currentDate = new Date();
-// currentDate.setDate(currentDate.getDate() + 1); // 1 day
 currentDate.setDate(currentDate.getDate() + 14); // 14 day
 
-let diff = Date.parse(currentDate) - Date.now();
+let endtime = (Date.parse(currentDate) - Date.now()) + 1000;
 let sec, min, hour, day;
 
-console.log(diff);
+const timer = (duration) => { }
 
-sec = Math.floor(diff / 1000) % 60;
-min = Math.floor(diff / 1000 / 60) % 60;
-hour = Math.floor(diff / 1000 / (60 * 60)) % 24;
-day = Math.floor(diff / 1000 / (60 * 60 * 24));
+const formatTime = (dy, hr, mn, sc) => {
+    const day = dy < 10 ? `0${dy}` : dy;
+    const hour = hr < 10 ? `0${hr}` : hr;
+    const min = mn < 10 ? `0${mn}` : mn;
+    const sec = sc < 10 ? `0${sc}` : sc;
 
-console.log(`Starting at day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
-dayElement.textContent = day < 10 ? `0${day}` : day;
-hourElement.textContent = hour < 10 ? `0${hour}` : hour;
-minuteElement.textContent = min < 10 ? `0${min}` : min;
-secondElement.textContent = sec < 10 ? `0${sec}` : sec;
+    return { day, hour, min, sec }
+}
+
+console.log(endtime);
+
+sec = Math.floor(endtime / 1000) % 60;
+min = Math.floor(endtime / 1000 / 60) % 60;
+hour = Math.floor(endtime / 1000 / (60 * 60)) % 24;
+day = Math.floor(endtime / 1000 / (60 * 60 * 24));
+
+const displayTime = formatTime(day, hour, min, sec);
+
+dayElement.textContent = displayTime.day;
+hourElement.textContent = displayTime.hour;
+minuteElement.textContent = displayTime.min;
+secondElement.textContent = displayTime.sec;
 
 setInterval(() => {
-    diff -= 1000;
-    sec = Math.floor(diff / 1000) % 60;
-    min = Math.floor(diff / 1000 / 60) % 60;
-    hour = Math.floor(diff / 1000 / (60 * 60)) % 24;
-    day = Math.floor(diff / 1000 / (60 * 60 * 24));
+    endtime -= 1000;
+    sec = Math.floor(endtime / 1000) % 60;
+    min = Math.floor(endtime / 1000 / 60) % 60;
+    hour = Math.floor(endtime / 1000 / (60 * 60)) % 24;
+    day = Math.floor(endtime / 1000 / (60 * 60 * 24));
 
     console.log(`day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
 
-    dayElement.textContent = day < 10 ? `0${day}` : day;
-    hourElement.textContent = hour < 10 ? `0${hour}` : hour;
-    minuteElement.textContent = min < 10 ? `0${min}` : min;
-    secondElement.textContent = sec < 10 ? `0${sec}` : sec;
+    const displayTime = formatTime(day, hour, min, sec);
+
+    dayElement.textContent = displayTime.day;
+    hourElement.textContent = displayTime.hour;
+    minuteElement.textContent = displayTime.min;
+    secondElement.textContent = displayTime.sec;
 
 }, 1000);
 
@@ -43,7 +56,3 @@ setInterval(() => {
 // Get value for current time (seconds, minute, hour, day)
 // Get the diff of current time from endTime
 // Do this every second until timer is at zero 
-
-const timer = (duration) => {
-
-}
