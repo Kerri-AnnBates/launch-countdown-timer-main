@@ -18,6 +18,10 @@ hour = Math.floor(diff / 1000 / (60 * 60)) % 24;
 day = Math.floor(diff / 1000 / (60 * 60 * 24));
 
 console.log(`Starting at day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
+dayElement.textContent = day < 10 ? `0${day}` : day;
+hourElement.textContent = hour < 10 ? `0${hour}` : hour;
+minuteElement.textContent = min < 10 ? `0${min}` : min;
+secondElement.textContent = sec < 10 ? `0${sec}` : sec;
 
 setInterval(() => {
     diff -= 1000;
