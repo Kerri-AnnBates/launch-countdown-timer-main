@@ -17,7 +17,11 @@ const formatTime = (dy, hr, mn, sc) => {
     const min = mn < 10 ? `0${mn}` : mn;
     const sec = sc < 10 ? `0${sc}` : sc;
 
-    return { day, hour, min, sec }
+    dayElement.textContent = day;
+    hourElement.textContent = hour;
+    minuteElement.textContent = min;
+    secondElement.textContent = sec;
+
 }
 
 console.log(endtime);
@@ -27,12 +31,7 @@ min = Math.floor(endtime / 1000 / 60) % 60;
 hour = Math.floor(endtime / 1000 / (60 * 60)) % 24;
 day = Math.floor(endtime / 1000 / (60 * 60 * 24));
 
-const displayTime = formatTime(day, hour, min, sec);
-
-dayElement.textContent = displayTime.day;
-hourElement.textContent = displayTime.hour;
-minuteElement.textContent = displayTime.min;
-secondElement.textContent = displayTime.sec;
+formatTime(day, hour, min, sec);
 
 setInterval(() => {
     endtime -= 1000;
@@ -43,12 +42,7 @@ setInterval(() => {
 
     console.log(`day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
 
-    const displayTime = formatTime(day, hour, min, sec);
-
-    dayElement.textContent = displayTime.day;
-    hourElement.textContent = displayTime.hour;
-    minuteElement.textContent = displayTime.min;
-    secondElement.textContent = displayTime.sec;
+    formatTime(day, hour, min, sec);
 
 }, 1000);
 
