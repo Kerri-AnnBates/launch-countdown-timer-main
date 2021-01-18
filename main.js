@@ -9,7 +9,18 @@ currentDate.setDate(currentDate.getDate() + 14); // 14 day
 let endtime = (Date.parse(currentDate) - Date.now()) + 1000;
 let sec, min, hour, day;
 
-const timer = (duration) => { }
+const timer = () => {
+
+    endtime -= 1000;
+    sec = Math.floor(endtime / 1000) % 60;
+    min = Math.floor(endtime / 1000 / 60) % 60;
+    hour = Math.floor(endtime / 1000 / (60 * 60)) % 24;
+    day = Math.floor(endtime / 1000 / (60 * 60 * 24));
+
+    console.log(`day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
+
+    formatTime(day, hour, min, sec);
+}
 
 const formatTime = (dy, hr, mn, sc) => {
     const day = dy < 10 ? `0${dy}` : dy;
@@ -24,27 +35,15 @@ const formatTime = (dy, hr, mn, sc) => {
 
 }
 
-console.log(endtime);
+// sec = Math.floor(endtime / 1000) % 60;
+// min = Math.floor(endtime / 1000 / 60) % 60;
+// hour = Math.floor(endtime / 1000 / (60 * 60)) % 24;
+// day = Math.floor(endtime / 1000 / (60 * 60 * 24));
 
-sec = Math.floor(endtime / 1000) % 60;
-min = Math.floor(endtime / 1000 / 60) % 60;
-hour = Math.floor(endtime / 1000 / (60 * 60)) % 24;
-day = Math.floor(endtime / 1000 / (60 * 60 * 24));
+// formatTime(day, hour, min, sec);
+timer();
 
-formatTime(day, hour, min, sec);
-
-setInterval(() => {
-    endtime -= 1000;
-    sec = Math.floor(endtime / 1000) % 60;
-    min = Math.floor(endtime / 1000 / 60) % 60;
-    hour = Math.floor(endtime / 1000 / (60 * 60)) % 24;
-    day = Math.floor(endtime / 1000 / (60 * 60 * 24));
-
-    console.log(`day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
-
-    formatTime(day, hour, min, sec);
-
-}, 1000);
+setInterval(timer, 1000);
 
 // Get endTime -> 14 days
 // Get value for current time (seconds, minute, hour, day)
