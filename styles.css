@@ -59,13 +59,6 @@ main {
     position: relative;
 }
 
-.hills {
-    /* position: absolute;
-    bottom: 0;
-    z-index: -1; */
-    /* height: 500px; */
-}
-
 .main-title {
     position: absolute;
     top: 25%;
@@ -83,10 +76,34 @@ main {
 }
 
 .countdown__digit {
-    color: #fb6087;
+    color: rgba(251, 96, 135, 0.85);
     font-weight: 700;
     font-size: 75px;
     position: relative;
+}
+
+.countdown__digit::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    background: rgba(52, 54, 80, 0.9);
+    z-index: -1;
+    border-radius: 10px 10px 0 0;
+}
+
+.countdown__digit::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 50%;
+    background: rgba(132, 134, 169, 0.5);
+    z-index: -1;
+    border-radius: 0 0 10px 10px;
 }
 
 .countdown__title {
@@ -101,6 +118,7 @@ main {
 .countdown__block {
     max-width: 120px;
     width: 100%;
+    margin: 0 10px;
 }
 
 /* Footer */
