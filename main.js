@@ -4,7 +4,7 @@ const minuteElement = document.querySelector("#minute");
 const secondElement = document.querySelector("#second");
 
 let currentDate = new Date();
-currentDate.setDate(currentDate.getDate() + 14); // 14 day
+currentDate.setDate(currentDate.getDate() + 14); // 14 days
 
 let endtime = (Date.parse(currentDate) - Date.now());
 let sec, min, hour, day;
@@ -18,8 +18,6 @@ const timer = () => {
     min = Math.floor(endtime / 1000 / 60) % 60;
     hour = Math.floor(endtime / 1000 / (60 * 60)) % 24;
     day = Math.floor(endtime / 1000 / (60 * 60 * 24));
-
-    // console.log(`day: ${day} hour: ${hour}, min: ${min}, sec: ${sec}`);
 
     formatTime(day, hour, min, sec);
 
