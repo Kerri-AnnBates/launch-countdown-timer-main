@@ -40,8 +40,3 @@ const formatTime = (dy, hr, mn, sc) => {
 timer();
 
 setInterval(timer, 1000);
-
-// Get endTime -> 14 days
-// Get value for current time (seconds, minute, hour, day)
-// Get the diff of current time from endTime
-// Do this every second until timer is at zero 
