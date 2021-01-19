@@ -9,15 +9,15 @@ currentDate.setDate(currentDate.getDate() + 14); // 14 days
 let endtime = (Date.parse(currentDate) - Date.now());
 let sec, min, hour, day;
 
-endtime += 2000; // So timer doesn't start at 13:23:59:59;
+endtime += 1000; // So timer doesn't start at 13:23:59:59;
 
 const timer = () => {
 
-    endtime -= 1000;
     sec = Math.floor(endtime / 1000) % 60;
     min = Math.floor(endtime / 1000 / 60) % 60;
     hour = Math.floor(endtime / 1000 / (60 * 60)) % 24;
     day = Math.floor(endtime / 1000 / (60 * 60 * 24));
+    endtime -= 1000;
 
     formatTime(day, hour, min, sec);
 
