@@ -125,6 +125,28 @@ main {
     margin: 0 10px;
 }
 
+.countdown__digit-title::before {
+    content: "";
+    border-radius: 50%;
+    background-color: rgb(30, 31, 41);
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 45%;
+    left: -5px;
+}
+
+.countdown__digit-title::after {
+    content: "";
+    border-radius: 50%;
+    background-color: rgb(30, 31, 41);
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 45%;
+    right: -5px;
+}
+
 /* Footer */
 
 footer {
